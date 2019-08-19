@@ -18,8 +18,12 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
     }
+}
+
+ext {
+    roomVersion = '2.2.0-alpha02'
+    archLifecycleVersion = '2.0.0'
 }
 
 task clean(type: Delete) {

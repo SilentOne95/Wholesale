@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Wholesale</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Tab titles -->
+    <string name="tab_adapter_cord_title">Cord</string>
+    <string name="tab_adapter_macrame_title">Macrame</string>
+    <string name="tab_adapter_other_title">Other</string>
 </resources>
