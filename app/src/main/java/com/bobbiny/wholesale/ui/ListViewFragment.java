@@ -14,9 +14,13 @@ import android.view.ViewGroup;
 
 import com.bobbiny.wholesale.R;
 import com.bobbiny.wholesale.adapter.RecyclerViewAdapter;
+import com.bobbiny.wholesale.adapter.RecyclerViewClickListener;
+
+import static androidx.navigation.fragment.NavHostFragment.findNavController;
 
 public class ListViewFragment extends Fragment {
 
+    private Fragment mFragment;
     private View mView;
     private RecyclerView mRecyclerView;
     private RecyclerViewAdapter mAdapter;
@@ -36,9 +40,17 @@ public class ListViewFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        mFragment = this;
         mRecyclerView = mView.findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mAdapter = new RecyclerViewAdapter();
+        mAdapter = new RecyclerViewAdapter(mRecyclerViewItemClickListener);
         mRecyclerView.setAdapter(mAdapter);
     }
+
+    private RecyclerViewClickListener mRecyclerViewItemClickListener = new RecyclerViewClickListener() {
+        @Override
+        public void onItemClick(int id) {
+            findNavController(mFragment).navigate(R.id.action_listView_to_detailView);
+        }
+    };
 }

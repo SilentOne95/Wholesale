@@ -19,7 +19,7 @@ public class DetailViewFragment extends Fragment {
     private View mView;
 
     public DetailViewFragment() {
-
+        // Required empty public constructor
     }
 
     @Nullable

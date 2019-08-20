@@ -8,10 +8,12 @@
     <dimen name="very_big_value">32dp</dimen>
 
     <!-- List item -->
+    <dimen name="item_spacing">12dp</dimen>
+
     <dimen name="item_text_size_primary">20sp</dimen>
     <dimen name="item_text_size_secondary">14sp</dimen>
     <dimen name="item_button_height">35dp</dimen>
-    <dimen name="item_button_width">70dp</dimen>
+    <dimen name="item_button_width">60dp</dimen>
 
     <dimen name="rounded_corner_radius">3dp</dimen>
 
