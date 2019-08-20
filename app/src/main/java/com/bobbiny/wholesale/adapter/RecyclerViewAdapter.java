@@ -45,7 +45,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             mItemClickListener = listener;
         }
 
-        public void bind(@NonNull String string) {
+        void bind(@NonNull String string) {
             mBinding.setData(string);
             mBinding.executePendingBindings();
         }

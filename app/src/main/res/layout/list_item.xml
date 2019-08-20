@@ -15,7 +15,7 @@
             android:layout_marginStart="@dimen/mid_value"
             android:text="@{data}"
             android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/item_text_size_primary"
+            android:textSize="@dimen/text_size_header_secondary"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +29,7 @@
             android:layout_marginTop="@dimen/small_value"
             android:text="Full Name"
             android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/item_text_size_primary"
+            android:textSize="@dimen/text_size_header_secondary"
             app:layout_constraintBottom_toTopOf="@+id/item_country"
             app:layout_constraintStart_toEndOf="@+id/item_id"
             app:layout_constraintTop_toTopOf="parent" />
@@ -42,7 +42,7 @@
             android:layout_marginBottom="@dimen/small_value"
             android:text="Country"
             android:textColor="@color/colorPrimaryLight"
-            android:textSize="@dimen/item_text_size_secondary"
+            android:textSize="@dimen/text_size_subtitle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/item_id"
             app:layout_constraintTop_toBottomOf="@+id/item_full_name" />
