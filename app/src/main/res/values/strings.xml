@@ -6,4 +6,28 @@
     <string name="tab_adapter_cord_title">Cord</string>
     <string name="tab_adapter_macrame_title">Macrame</string>
     <string name="tab_adapter_other_title">Other</string>
+
+    <!-- Tab strings -->
+    <string name="cord_first_category_text">SX</string>
+    <string name="cord_second_category_text">SS</string>
+    <string name="cord_third_category_text">XX</string>
+    <string name="cord_fourth_category_text">BD</string>
+    <string name="cord_fifth_category_text">BP</string>
+    <string name="cord_sixth_category_text">BS</string>
+
+    <string name="macrame_first_category_text">MS</string>
+    <string name="macrame_second_category_text">MX</string>
+    <string name="macrame_third_category_text">TS</string>
+    <string name="macrame_fourth_category_text">TX</string>
+
+    <string name="other_first_category_text">BN</string>
+    <string name="other_second_category_text">BB</string>
+    <string name="other_third_category_text">BI</string>
+    <string name="other_fourth_category_text">S</string>
+    <string name="other_fifth_category_text">DD</string>
+    <string name="other_sixth_category_text">OL</string>
+    <string name="other_seventh_category_text">AA</string>
+
+    <string name="edit_text_field_hint">Provide price</string>
+
 </resources>

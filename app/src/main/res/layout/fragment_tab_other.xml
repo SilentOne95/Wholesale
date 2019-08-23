@@ -1,13 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.tabs.TabOtherFragment">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="OTHER" />
+        android:id="@+id/other_first_category_text"
+        style="@style/tab_fragment_category_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/other_first_category_text"
+        app:layout_constraintBottom_toTopOf="@+id/other_second_category_text"
+        app:layout_constraintEnd_toStartOf="@+id/other_first_price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/other_first_price"
+        style="@style/tab_fragment_edit_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_text_field_hint"
+        android:paddingStart="@dimen/small_value"
+        android:paddingEnd="@dimen/small_value"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/other_first_category_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/other_first_category_text"
+        app:layout_constraintTop_toTopOf="@+id/other_first_category_text" />
+
+    <TextView
+        android:id="@+id/other_second_category_text"
+        style="@style/tab_fragment_category_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/other_second_category_text"
+        app:layout_constraintBottom_toTopOf="@+id/other_third_category_text"
+        app:layout_constraintEnd_toStartOf="@+id/other_second_price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/other_first_category_text" />
+
+    <EditText
+        android:id="@+id/other_second_price"
+        style="@style/tab_fragment_edit_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_text_field_hint"
+        android:paddingStart="@dimen/small_value"
+        android:paddingEnd="@dimen/small_value"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/other_second_category_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/other_second_category_text"
+        app:layout_constraintTop_toTopOf="@+id/other_second_category_text" />
+
+    <TextView
+        android:id="@+id/other_third_category_text"
+        style="@style/tab_fragment_category_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/other_third_category_text"
+        app:layout_constraintBottom_toTopOf="@+id/other_fourth_category_text"
+        app:layout_constraintEnd_toStartOf="@+id/other_third_price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/other_second_category_text" />
+
+    <EditText
+        android:id="@+id/other_third_price"
+        style="@style/tab_fragment_edit_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_text_field_hint"
+        android:paddingStart="@dimen/small_value"
+        android:paddingEnd="@dimen/small_value"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/other_third_category_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/other_third_category_text"
+        app:layout_constraintTop_toTopOf="@+id/other_third_category_text" />
+
+    <TextView
+        android:id="@+id/other_fourth_category_text"
+        style="@style/tab_fragment_category_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/other_fourth_category_text"
+        app:layout_constraintBottom_toTopOf="@+id/other_fifth_category_text"
+        app:layout_constraintEnd_toStartOf="@+id/other_fourth_price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/other_third_category_text" />
+
+    <EditText
+        android:id="@+id/other_fourth_price"
+        style="@style/tab_fragment_edit_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_text_field_hint"
+        android:paddingStart="@dimen/small_value"
+        android:paddingEnd="@dimen/small_value"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/other_fourth_category_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/other_fourth_category_text"
+        app:layout_constraintTop_toTopOf="@+id/other_fourth_category_text" />
+
+    <TextView
+        android:id="@+id/other_fifth_category_text"
+        style="@style/tab_fragment_category_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/other_fifth_category_text"
+        app:layout_constraintBottom_toTopOf="@+id/other_sixth_category_text"
+        app:layout_constraintEnd_toStartOf="@+id/other_fifth_price"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/other_fourth_category_text" />
+
+    <EditText
+        android:id="@+id/other_fifth_price"
+        style="@style/tab_fragment_edit_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_text_field_hint"
+        android:paddingStart="@dimen/small_value"
+        android:paddingEnd="@dimen/small_value"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/other_fifth_category_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/other_fifth_category_text"
+        app:layout_constraintTop_toTopOf="@+id/other_fifth_category_text" />
+
+    <TextView
+        android:id="@+id/other_sixth_category_text"
+        style="@style/tab_fragment_category_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/other_sixth_category_text"
+        app:layout_constraintBottom_toTopOf="@+id/other_seventh_category_text"
+        app:layout_constraintEnd_toStartOf="@+id/other_sixth_price"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/other_fifth_category_text" />
+
+    <EditText
+        android:id="@+id/other_sixth_price"
+        style="@style/tab_fragment_edit_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_text_field_hint"
+        android:paddingStart="@dimen/small_value"
+        android:paddingEnd="@dimen/small_value"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/other_sixth_category_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/other_sixth_category_text"
+        app:layout_constraintTop_toTopOf="@+id/other_sixth_category_text" />
+
+    <TextView
+        android:id="@+id/other_seventh_category_text"
+        style="@style/tab_fragment_category_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/other_seventh_category_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/other_seventh_price"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/other_sixth_category_text" />
+
+    <EditText
+        android:id="@+id/other_seventh_price"
+        style="@style/tab_fragment_edit_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_text_field_hint"
+        android:paddingStart="@dimen/small_value"
+        android:paddingEnd="@dimen/small_value"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/other_seventh_category_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/other_seventh_category_text"
+        app:layout_constraintTop_toTopOf="@+id/other_seventh_category_text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

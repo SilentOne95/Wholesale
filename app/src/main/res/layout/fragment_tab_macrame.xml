@@ -1,13 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.tabs.TabMacrameFragment">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="MACRAME" />
+        android:id="@+id/macrame_first_category_text"
+        style="@style/tab_fragment_category_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/macrame_first_category_text"
+        app:layout_constraintBottom_toTopOf="@+id/macrame_second_category_text"
+        app:layout_constraintEnd_toStartOf="@+id/macrame_first_price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/macrame_first_price"
+        style="@style/tab_fragment_edit_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_text_field_hint"
+        android:paddingStart="@dimen/small_value"
+        android:paddingEnd="@dimen/small_value"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/macrame_first_category_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/macrame_first_category_text"
+        app:layout_constraintTop_toTopOf="@+id/macrame_first_category_text" />
+
+    <TextView
+        android:id="@+id/macrame_second_category_text"
+        style="@style/tab_fragment_category_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/macrame_second_category_text"
+        app:layout_constraintBottom_toTopOf="@+id/macrame_third_category_text"
+        app:layout_constraintEnd_toStartOf="@+id/macrame_second_price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/macrame_first_category_text" />
+
+    <EditText
+        android:id="@+id/macrame_second_price"
+        style="@style/tab_fragment_edit_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_text_field_hint"
+        android:paddingStart="@dimen/small_value"
+        android:paddingEnd="@dimen/small_value"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/macrame_second_category_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/macrame_second_category_text"
+        app:layout_constraintTop_toTopOf="@+id/macrame_second_category_text" />
+
+    <TextView
+        android:id="@+id/macrame_third_category_text"
+        style="@style/tab_fragment_category_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/macrame_third_category_text"
+        app:layout_constraintBottom_toTopOf="@+id/macrame_fourth_category_text"
+        app:layout_constraintEnd_toStartOf="@+id/macrame_third_price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/macrame_second_category_text" />
+
+    <EditText
+        android:id="@+id/macrame_third_price"
+        style="@style/tab_fragment_edit_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_text_field_hint"
+        android:paddingStart="@dimen/small_value"
+        android:paddingEnd="@dimen/small_value"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/macrame_third_category_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/macrame_third_category_text"
+        app:layout_constraintTop_toTopOf="@+id/macrame_third_category_text" />
+
+    <TextView
+        android:id="@+id/macrame_fourth_category_text"
+        style="@style/tab_fragment_category_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/macrame_fourth_category_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/macrame_fourth_price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/macrame_third_category_text" />
+
+    <EditText
+        android:id="@+id/macrame_fourth_price"
+        style="@style/tab_fragment_edit_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_text_field_hint"
+        android:paddingStart="@dimen/small_value"
+        android:paddingEnd="@dimen/small_value"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/macrame_fourth_category_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/macrame_fourth_category_text"
+        app:layout_constraintTop_toTopOf="@+id/macrame_fourth_category_text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
