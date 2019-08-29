@@ -16,7 +16,7 @@ public class Macrame {
     @SerializedName("item_id")
     @Expose
     @ColumnInfo(name = "item_id")
-    private Integer mItemId;
+    private String mItemId;
 
     @SerializedName("item_price")
     @Expose
@@ -31,11 +31,11 @@ public class Macrame {
         this.mId = mId;
     }
 
-    public Integer getItemId() {
+    public String getItemId() {
         return mItemId;
     }
 
-    public void setItemId(Integer mItemId) {
+    public void setItemId(String mItemId) {
         this.mItemId = mItemId;
     }
 

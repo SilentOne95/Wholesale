@@ -17,10 +17,10 @@ import com.bobbiny.wholesale.data.local.entity.Cord;
 import com.bobbiny.wholesale.data.local.entity.Macrame;
 import com.bobbiny.wholesale.data.local.entity.Other;
 import com.bobbiny.wholesale.data.local.entity.User;
-import com.bobbiny.wholesale.data.utils.CordTypeConverter;
+import com.bobbiny.wholesale.data.utils.RoomTypeConverter;
 
 @Database(entities = {Contractor.class, User.class, Cord.class, Macrame.class, Other.class}, version = 1)
-@TypeConverters({CordTypeConverter.class})
+@TypeConverters({RoomTypeConverter.class})
 public abstract class WholesaleRoomDatabase extends RoomDatabase {
 
     public abstract ContractorDao contractorDao();

@@ -3,7 +3,9 @@ package com.bobbiny.wholesale.data.local.entity;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
+import com.bobbiny.wholesale.data.utils.RoomTypeConverter;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -21,21 +23,25 @@ public class Contractor {
     @SerializedName("user")
     @Expose
     @ColumnInfo(name = "user")
+    @TypeConverters(RoomTypeConverter.class)
     private User mUser;
 
     @SerializedName("cord")
     @Expose
     @ColumnInfo(name = "cord")
+    @TypeConverters(RoomTypeConverter.class)
     private List<Cord> mCordList = null;
 
     @SerializedName("macrame")
     @Expose
     @ColumnInfo(name = "macrame")
+    @TypeConverters(RoomTypeConverter.class)
     private List<Macrame> mMacrameList = null;
 
     @SerializedName("other")
     @Expose
     @ColumnInfo(name = "other")
+    @TypeConverters(RoomTypeConverter.class)
     private List<Other> mOtherList = null;
 
     public Integer getId() {

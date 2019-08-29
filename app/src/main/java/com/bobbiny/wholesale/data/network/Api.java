@@ -1,6 +1,6 @@
 package com.bobbiny.wholesale.data.network;
 
-import com.bobbiny.wholesale.data.local.entity.Cord;
+import com.bobbiny.wholesale.data.local.entity.Contractor;
 
 import java.util.List;
 
@@ -12,5 +12,5 @@ public interface Api {
 
     @Streaming
     @GET("/contractors")
-    Single<List<Cord>> getAllContractors();
+    Single<List<Contractor>> getAllContractors();
 }

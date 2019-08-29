@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "505fd5c802f46c501faf0ac1d89e44dd",
+    "identityHash": "844d5d146dd8b2c604be72ee20e219e0",
     "entities": [
       {
         "tableName": "contractor_table",
@@ -88,7 +88,7 @@
       },
       {
         "tableName": "cord_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mId` INTEGER PRIMARY KEY AUTOINCREMENT, `item_id` INTEGER, `item_price` REAL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mId` INTEGER PRIMARY KEY AUTOINCREMENT, `item_id` TEXT, `item_price` REAL)",
         "fields": [
           {
             "fieldPath": "mId",
@@ -99,7 +99,7 @@
           {
             "fieldPath": "mItemId",
             "columnName": "item_id",
-            "affinity": "INTEGER",
+            "affinity": "TEXT",
             "notNull": false
           },
           {
@@ -120,7 +120,7 @@
       },
       {
         "tableName": "macrame_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mId` INTEGER PRIMARY KEY AUTOINCREMENT, `item_id` INTEGER, `item_price` REAL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mId` INTEGER PRIMARY KEY AUTOINCREMENT, `item_id` TEXT, `item_price` REAL)",
         "fields": [
           {
             "fieldPath": "mId",
@@ -131,7 +131,7 @@
           {
             "fieldPath": "mItemId",
             "columnName": "item_id",
-            "affinity": "INTEGER",
+            "affinity": "TEXT",
             "notNull": false
           },
           {
@@ -152,7 +152,7 @@
       },
       {
         "tableName": "other_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mId` INTEGER PRIMARY KEY AUTOINCREMENT, `item_id` INTEGER, `item_price` REAL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mId` INTEGER PRIMARY KEY AUTOINCREMENT, `item_id` TEXT, `item_price` REAL)",
         "fields": [
           {
             "fieldPath": "mId",
@@ -163,7 +163,7 @@
           {
             "fieldPath": "mItemId",
             "columnName": "item_id",
-            "affinity": "INTEGER",
+            "affinity": "TEXT",
             "notNull": false
           },
           {
@@ -186,7 +186,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '505fd5c802f46c501faf0ac1d89e44dd')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '844d5d146dd8b2c604be72ee20e219e0')"
     ]
   }
 }
