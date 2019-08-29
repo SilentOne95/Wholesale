@@ -1,6 +1,5 @@
 package com.bobbiny.wholesale.data.local.dao;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -21,7 +20,7 @@ public interface ContractorDao {
      * @return all contractors.
      */
     @Query("SELECT * FROM contractor_table")
-    LiveData<List<Contractor>> getAllContractors();
+    List<Contractor> getAllContractors();
 
     /**
      * Insert all contractors to the user table.

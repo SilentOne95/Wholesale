@@ -2,6 +2,8 @@ package com.bobbiny.wholesale.data;
 
 import androidx.annotation.NonNull;
 
+import java.util.List;
+
 public class WholesaleRepository implements WholesaleDataSource {
 
     private static WholesaleRepository INSTANCE = null;
@@ -30,5 +32,24 @@ public class WholesaleRepository implements WholesaleDataSource {
         }
 
         return INSTANCE;
+    }
+
+    @Override
+    public void getAllContractors(@NonNull LoadDataCallback callback) {
+        mWholesaleRemoteDataSource.getAllContractors(new LoadDataCallback() {
+            @Override
+            public void onDataLoaded(List<?> data) {
+                saveContractors(data);
+            }
+
+            @Override
+            public void onDataNotAvailable() {
+            }
+        });
+    }
+
+    @Override
+    public void saveContractors(@NonNull List<?> dataList) {
+        mWholesaleLocalDataSource.saveContractors(dataList);
     }
 }

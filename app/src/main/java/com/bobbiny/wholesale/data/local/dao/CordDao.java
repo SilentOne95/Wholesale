@@ -1,6 +1,5 @@
 package com.bobbiny.wholesale.data.local.dao;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -21,7 +20,7 @@ public interface CordDao {
      * @return all cords.
      */
     @Query("SELECT * FROM cord_table")
-    LiveData<List<Cord>> getAllCords();
+    List<Cord> getAllCords();
 
     /**
      * Insert all cords to the cord table.

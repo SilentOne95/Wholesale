@@ -1,6 +1,5 @@
 package com.bobbiny.wholesale.data.local.dao;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -21,7 +20,7 @@ public interface MacrameDao {
      * @return all macrame.
      */
     @Query("SELECT * FROM macrame_table")
-    LiveData<List<Macrame>> getAllMacrame();
+    List<Macrame> getAllMacrame();
 
     /**
      * Insert all macrame to the macrame table.

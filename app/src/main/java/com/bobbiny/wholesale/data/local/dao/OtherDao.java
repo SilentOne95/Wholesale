@@ -1,6 +1,5 @@
 package com.bobbiny.wholesale.data.local.dao;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -21,7 +20,7 @@ public interface OtherDao {
      * @return all other items.
      */
     @Query("SELECT * FROM other_table")
-    LiveData<List<Other>> getAllOthers();
+    List<Other> getAllOthers();
 
     /**
      * Insert all other items to the other table.

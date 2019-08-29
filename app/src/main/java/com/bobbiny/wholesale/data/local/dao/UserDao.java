@@ -1,6 +1,5 @@
 package com.bobbiny.wholesale.data.local.dao;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -21,7 +20,7 @@ public interface UserDao {
      * @return all users.
      */
     @Query("SELECT * FROM user_table")
-    LiveData<List<User>> getAllUsers();
+    List<User> getAllUsers();
 
     /**
      * Insert all users to the user table.
