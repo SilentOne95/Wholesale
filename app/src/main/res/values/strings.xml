@@ -2,11 +2,6 @@
     <string name="app_name">Wholesale</string>
     <string name="action_settings">Settings</string>
 
-    <!-- Tab titles -->
-    <string name="tab_adapter_cord_title">Cord</string>
-    <string name="tab_adapter_macrame_title">Macrame</string>
-    <string name="tab_adapter_other_title">Other</string>
-
     <!-- Tab strings -->
     <string name="cord_first_category_text">SX</string>
     <string name="cord_second_category_text">SS</string>
@@ -27,6 +22,8 @@
     <string name="other_fifth_category_text">DD</string>
     <string name="other_sixth_category_text">OL</string>
     <string name="other_seventh_category_text">AA</string>
+
+    <string name="delivery_first_category_text">Delivery cost \nper package</string>
 
     <string name="edit_text_field_hint">Provide price</string>
 
