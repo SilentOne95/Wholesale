@@ -3,13 +3,9 @@ package com.bobbiny.wholesale.data.local.entity;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-import androidx.room.TypeConverters;
 
-import com.bobbiny.wholesale.data.utils.RoomTypeConverter;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
 
 @Entity(tableName = "contractor_table")
 public class Contractor {
@@ -20,29 +16,30 @@ public class Contractor {
     @ColumnInfo(name = "id")
     private Integer mId;
 
-    @SerializedName("user")
+    @SerializedName("first_name")
     @Expose
-    @ColumnInfo(name = "user")
-    @TypeConverters(RoomTypeConverter.class)
-    private User mUser;
+    @ColumnInfo(name = "first_name")
+    private String mFirstName;
 
-    @SerializedName("cord")
+    @SerializedName("last_name")
     @Expose
-    @ColumnInfo(name = "cord")
-    @TypeConverters(RoomTypeConverter.class)
-    private List<Cord> mCordList = null;
+    @ColumnInfo(name = "last_name")
+    private String mLastName;
 
-    @SerializedName("macrame")
+    @SerializedName("country")
     @Expose
-    @ColumnInfo(name = "macrame")
-    @TypeConverters(RoomTypeConverter.class)
-    private List<Macrame> mMacrameList = null;
+    @ColumnInfo(name = "country")
+    private String mCountry;
 
-    @SerializedName("other")
+    @SerializedName("currency")
     @Expose
-    @ColumnInfo(name = "other")
-    @TypeConverters(RoomTypeConverter.class)
-    private List<Other> mOtherList = null;
+    @ColumnInfo(name = "currency")
+    private String mCurrency;
+
+    @SerializedName("delivery_price")
+    @Expose
+    @ColumnInfo(name = "delivery_price")
+    private Float mDeliveryPrice;
 
     public Integer getId() {
         return mId;
@@ -52,35 +49,43 @@ public class Contractor {
         this.mId = mId;
     }
 
-    public User getUser() {
-        return mUser;
+    public String getFirstName() {
+        return mFirstName;
     }
 
-    public void setUser(User mUser) {
-        this.mUser = mUser;
+    public void setFirstName(String mFirstName) {
+        this.mFirstName = mFirstName;
     }
 
-    public List<Cord> getCordList() {
-        return mCordList;
+    public String getLastName() {
+        return mLastName;
     }
 
-    public void setCordList(List<Cord> mCordList) {
-        this.mCordList = mCordList;
+    public void setLastName(String mLastName) {
+        this.mLastName = mLastName;
     }
 
-    public List<Macrame> getMacrameList() {
-        return mMacrameList;
+    public String getCountry() {
+        return mCountry;
     }
 
-    public void setMacrameList(List<Macrame> mMacrameList) {
-        this.mMacrameList = mMacrameList;
+    public void setCountry(String mCountry) {
+        this.mCountry = mCountry;
     }
 
-    public List<Other> getOtherList() {
-        return mOtherList;
+    public String getCurrency() {
+        return mCurrency;
     }
 
-    public void setOtherList(List<Other> mOtherList) {
-        this.mOtherList = mOtherList;
+    public void setCurrency(String mCurrency) {
+        this.mCurrency = mCurrency;
+    }
+
+    public Float getDeliveryPrice() {
+        return mDeliveryPrice;
+    }
+
+    public void setDeliveryPrice(Float mDeliveryPrice) {
+        this.mDeliveryPrice = mDeliveryPrice;
     }
 }

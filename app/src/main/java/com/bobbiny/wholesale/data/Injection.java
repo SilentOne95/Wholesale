@@ -36,6 +36,6 @@ public class Injection {
         WholesaleRoomDatabase database = WholesaleRoomDatabase.getDatabase(context);
         return WholesaleRepository.getInstance(WholesaleRemoteDataSource.getInstance(),
                 WholesaleLocalDataSource.getInstance(new AppExecutors(), database.contractorDao(),
-                        database.userDao(), database.cordDao(), database.macrameDao(), database.otherDao()));
+                        database.itemDao()));
     }
 }

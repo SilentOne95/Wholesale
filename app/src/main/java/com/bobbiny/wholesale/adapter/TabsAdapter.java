@@ -11,14 +11,14 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.bobbiny.wholesale.R;
 import com.bobbiny.wholesale.ui.tabs.TabCordFragment;
+import com.bobbiny.wholesale.ui.tabs.TabDeliveryFragment;
 import com.bobbiny.wholesale.ui.tabs.TabMacrameFragment;
 import com.bobbiny.wholesale.ui.tabs.TabOtherFragment;
 
 public class TabsAdapter extends FragmentPagerAdapter {
 
     private Context mContext;
-    private int[] mTabTitles = {R.string.tab_adapter_cord_title, R.string.tab_adapter_macrame_title, R.string.tab_adapter_other_title};
-    private int[] mTabIconsId = {R.drawable.ic_tab_cord, R.drawable.ic_tab_macrame, R.drawable.ic_tab_other};
+    private int[] mTabIconsId = {R.drawable.ic_tab_cord, R.drawable.ic_tab_macrame, R.drawable.ic_tab_other, R.drawable.ic_tab_delivery};
 
     public TabsAdapter(Context context, FragmentManager fragmentManager) {
         super(fragmentManager);
@@ -29,7 +29,6 @@ public class TabsAdapter extends FragmentPagerAdapter {
         View view = LayoutInflater.from(mContext).inflate(R.layout.tab_view_custom, null);
 
         TextView title = view.findViewById(R.id.tab_view_text);
-        title.setText(mTabTitles[position]);
         title.setCompoundDrawablesWithIntrinsicBounds(mTabIconsId[position], 0, 0, 0);
 
         return view;
@@ -44,6 +43,8 @@ public class TabsAdapter extends FragmentPagerAdapter {
                 return new TabMacrameFragment();
             case 2:
                 return new TabOtherFragment();
+            case 3:
+                return new TabDeliveryFragment();
             default:
                 return null;
         }
@@ -51,6 +52,6 @@ public class TabsAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 }

@@ -2,59 +2,15 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "844d5d146dd8b2c604be72ee20e219e0",
+    "identityHash": "a034b8a80f8344bef592586fd71ac89c",
     "entities": [
       {
         "tableName": "contractor_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER, `user` TEXT, `cord` TEXT, `macrame` TEXT, `other` TEXT, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER, `first_name` TEXT, `last_name` TEXT, `country` TEXT, `currency` TEXT, `delivery_price` REAL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "mId",
             "columnName": "id",
-            "affinity": "INTEGER",
-            "notNull": false
-          },
-          {
-            "fieldPath": "mUser",
-            "columnName": "user",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "mCordList",
-            "columnName": "cord",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "mMacrameList",
-            "columnName": "macrame",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "mOtherList",
-            "columnName": "other",
-            "affinity": "TEXT",
-            "notNull": false
-          }
-        ],
-        "primaryKey": {
-          "columnNames": [
-            "id"
-          ],
-          "autoGenerate": false
-        },
-        "indices": [],
-        "foreignKeys": []
-      },
-      {
-        "tableName": "user_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mId` INTEGER PRIMARY KEY AUTOINCREMENT, `first_name` TEXT, `last_name` TEXT, `country` TEXT)",
-        "fields": [
-          {
-            "fieldPath": "mId",
-            "columnName": "mId",
             "affinity": "INTEGER",
             "notNull": false
           },
@@ -75,109 +31,69 @@
             "columnName": "country",
             "affinity": "TEXT",
             "notNull": false
-          }
-        ],
-        "primaryKey": {
-          "columnNames": [
-            "mId"
-          ],
-          "autoGenerate": true
-        },
-        "indices": [],
-        "foreignKeys": []
-      },
-      {
-        "tableName": "cord_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mId` INTEGER PRIMARY KEY AUTOINCREMENT, `item_id` TEXT, `item_price` REAL)",
-        "fields": [
-          {
-            "fieldPath": "mId",
-            "columnName": "mId",
-            "affinity": "INTEGER",
-            "notNull": false
           },
           {
-            "fieldPath": "mItemId",
-            "columnName": "item_id",
+            "fieldPath": "mCurrency",
+            "columnName": "currency",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "mItemPrice",
-            "columnName": "item_price",
+            "fieldPath": "mDeliveryPrice",
+            "columnName": "delivery_price",
             "affinity": "REAL",
             "notNull": false
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "mId"
+            "id"
           ],
-          "autoGenerate": true
+          "autoGenerate": false
         },
         "indices": [],
         "foreignKeys": []
       },
       {
-        "tableName": "macrame_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mId` INTEGER PRIMARY KEY AUTOINCREMENT, `item_id` TEXT, `item_price` REAL)",
+        "tableName": "item_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER, `id_relation` INTEGER, `category` TEXT, `name` TEXT, `price` REAL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "mId",
-            "columnName": "mId",
+            "columnName": "id",
             "affinity": "INTEGER",
             "notNull": false
           },
           {
-            "fieldPath": "mItemId",
-            "columnName": "item_id",
+            "fieldPath": "mIdRelation",
+            "columnName": "id_relation",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mCategory",
+            "columnName": "category",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "mItemPrice",
-            "columnName": "item_price",
+            "fieldPath": "mName",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mPrice",
+            "columnName": "price",
             "affinity": "REAL",
             "notNull": false
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "mId"
+            "id"
           ],
-          "autoGenerate": true
-        },
-        "indices": [],
-        "foreignKeys": []
-      },
-      {
-        "tableName": "other_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mId` INTEGER PRIMARY KEY AUTOINCREMENT, `item_id` TEXT, `item_price` REAL)",
-        "fields": [
-          {
-            "fieldPath": "mId",
-            "columnName": "mId",
-            "affinity": "INTEGER",
-            "notNull": false
-          },
-          {
-            "fieldPath": "mItemId",
-            "columnName": "item_id",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "mItemPrice",
-            "columnName": "item_price",
-            "affinity": "REAL",
-            "notNull": false
-          }
-        ],
-        "primaryKey": {
-          "columnNames": [
-            "mId"
-          ],
-          "autoGenerate": true
+          "autoGenerate": false
         },
         "indices": [],
         "foreignKeys": []
@@ -186,7 +102,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '844d5d146dd8b2c604be72ee20e219e0')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a034b8a80f8344bef592586fd71ac89c')"
     ]
   }
 }

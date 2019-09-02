@@ -4,7 +4,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import com.bobbiny.wholesale.data.local.entity.Cord;
+import com.bobbiny.wholesale.data.local.entity.Item;
 
 import java.util.List;
 
@@ -12,19 +12,20 @@ import java.util.List;
  * Data Access Object for the cords table.
  */
 @Dao
-public interface CordDao {
+public interface ItemDao {
 
     /**
      * Select all cords from the cord table.
      *
      * @return all cords.
      */
-    @Query("SELECT * FROM cord_table")
-    List<Cord> getAllCords();
+    @Query("SELECT * FROM item_table")
+    List<Item> getAllItems();
 
     /**
      * Insert all cords to the cord table.
      */
     @Insert
-    void insertAllCords(List<Cord> cordList);
+    void insertAllItems(List<Item> cordList);
 }
+

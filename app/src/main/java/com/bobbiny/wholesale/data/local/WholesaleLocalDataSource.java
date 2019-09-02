@@ -2,14 +2,11 @@ package com.bobbiny.wholesale.data.local;
 
 import androidx.annotation.NonNull;
 
+import com.bobbiny.wholesale.data.local.dao.ItemDao;
 import com.bobbiny.wholesale.data.local.entity.Contractor;
 import com.bobbiny.wholesale.utils.AppExecutors;
 import com.bobbiny.wholesale.data.WholesaleDataSource;
 import com.bobbiny.wholesale.data.local.dao.ContractorDao;
-import com.bobbiny.wholesale.data.local.dao.CordDao;
-import com.bobbiny.wholesale.data.local.dao.MacrameDao;
-import com.bobbiny.wholesale.data.local.dao.OtherDao;
-import com.bobbiny.wholesale.data.local.dao.UserDao;
 
 import java.util.List;
 
@@ -21,33 +18,24 @@ public class WholesaleLocalDataSource implements WholesaleDataSource {
     private static volatile WholesaleLocalDataSource INSTANCE;
 
     private ContractorDao mContractorDao;
-    private UserDao mUserDao;
-    private CordDao mCordDao;
-    private MacrameDao mMacrameDao;
-    private OtherDao mOtherDao;
+    private ItemDao mItemDao;
 
     private AppExecutors mAppExecutors;
 
     // Prevent direct instantiation
     private WholesaleLocalDataSource(@NonNull AppExecutors appExecutors, @NonNull ContractorDao contractorDao,
-                                     @NonNull UserDao userDao, @NonNull CordDao cordDao, @NonNull MacrameDao macrameDao,
-                                     @NonNull OtherDao otherDao) {
+                                     @NonNull ItemDao itemDao) {
         mAppExecutors = appExecutors;
         mContractorDao = contractorDao;
-        mUserDao = userDao;
-        mCordDao = cordDao;
-        mMacrameDao = macrameDao;
-        mOtherDao = otherDao;
+        mItemDao = itemDao;
     }
 
     public static WholesaleLocalDataSource getInstance(@NonNull AppExecutors appExecutors, @NonNull ContractorDao contractorDao,
-                                                       @NonNull UserDao userDao, @NonNull CordDao cordDao,
-                                                       @NonNull MacrameDao macrameDao, @NonNull OtherDao otherDao) {
+                                                       @NonNull ItemDao itemDao) {
         if (INSTANCE == null) {
             synchronized (WholesaleLocalDataSource.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = new WholesaleLocalDataSource(appExecutors, contractorDao, userDao,
-                            cordDao, macrameDao, otherDao);
+                    INSTANCE = new WholesaleLocalDataSource(appExecutors, contractorDao, itemDao);
                 }
             }
         }
