@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,19 +14,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bobbiny.wholesale.R;
-import com.bobbiny.wholesale.adapter.RecyclerViewAdapter;
+import com.bobbiny.wholesale.adapter.ContractorListAdapter;
 import com.bobbiny.wholesale.adapter.RecyclerViewClickListener;
+import com.bobbiny.wholesale.viewModel.DetailViewModel;
 
 import static androidx.navigation.fragment.NavHostFragment.findNavController;
 
-public class ListViewFragment extends Fragment {
+public class ListFragment extends Fragment {
 
     private Fragment mFragment;
     private View mView;
     private RecyclerView mRecyclerView;
-    private RecyclerViewAdapter mAdapter;
+    private ContractorListAdapter mAdapter;
 
-    public ListViewFragment() {
+    public ListFragment() {
         // Required empty public constructor
     }
 
@@ -43,8 +45,11 @@ public class ListViewFragment extends Fragment {
         mFragment = this;
         mRecyclerView = mView.findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mAdapter = new RecyclerViewAdapter(mRecyclerViewItemClickListener);
+        mAdapter = new ContractorListAdapter(getContext(), mRecyclerViewItemClickListener);
         mRecyclerView.setAdapter(mAdapter);
+
+        DetailViewModel viewModel = ViewModelProviders.of(this).get(DetailViewModel.class);
+        viewModel.getContractors().observe(this, contractorList -> mAdapter.setContractors(contractorList));
     }
 
     private RecyclerViewClickListener mRecyclerViewItemClickListener = new RecyclerViewClickListener() {

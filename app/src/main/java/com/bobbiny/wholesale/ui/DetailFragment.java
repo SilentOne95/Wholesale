@@ -14,11 +14,11 @@ import com.bobbiny.wholesale.R;
 import com.bobbiny.wholesale.adapter.TabsAdapter;
 import com.google.android.material.tabs.TabLayout;
 
-public class DetailViewFragment extends Fragment {
+public class DetailFragment extends Fragment {
 
     private View mView;
 
-    public DetailViewFragment() {
+    public DetailFragment() {
         // Required empty public constructor
     }
 

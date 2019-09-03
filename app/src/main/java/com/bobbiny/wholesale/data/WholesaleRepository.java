@@ -40,10 +40,12 @@ public class WholesaleRepository implements WholesaleDataSource {
             @Override
             public void onDataLoaded(List<?> data) {
                 saveContractors(data);
+                callback.onDataLoaded(data);
             }
 
             @Override
             public void onDataNotAvailable() {
+                callback.onDataNotAvailable();
             }
         });
     }
