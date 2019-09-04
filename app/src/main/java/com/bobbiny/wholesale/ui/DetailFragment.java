@@ -8,10 +8,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bobbiny.wholesale.R;
 import com.bobbiny.wholesale.adapter.TabsAdapter;
+import com.bobbiny.wholesale.viewModel.DetailViewModel;
 import com.google.android.material.tabs.TabLayout;
 
 public class DetailFragment extends Fragment {
@@ -47,5 +49,7 @@ public class DetailFragment extends Fragment {
                 tab.setCustomView(tabsAdapter.getTabView(i));
             }
         }
+
+        DetailViewModel viewModel = ViewModelProviders.of(this).get(DetailViewModel.class);
     }
 }
