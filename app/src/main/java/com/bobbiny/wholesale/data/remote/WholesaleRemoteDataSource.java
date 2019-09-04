@@ -48,7 +48,20 @@ public class WholesaleRemoteDataSource implements WholesaleDataSource {
     }
 
     @Override
-    public void saveContractors(@NonNull List<?> dataList) {
+    public void getAllItems(@NonNull LoadDataCallback callback) {
+        mDisposable.add(mApi.getAllItems()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(callback::onDataLoaded, throwable -> callback.onDataNotAvailable()));
+    }
+
+    @Override
+    public void saveAllContractors(@NonNull List<?> dataList) {
+
+    }
+
+    @Override
+    public void saveAllItems(@NonNull List<?> dataList) {
 
     }
 }

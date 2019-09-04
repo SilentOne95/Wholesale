@@ -14,31 +14,30 @@ import com.bobbiny.wholesale.data.local.entity.Contractor;
 
 import java.util.List;
 
-public class DetailViewModel extends AndroidViewModel {
+public class ListViewModel extends AndroidViewModel {
 
     private WholesaleRepository mRepository;
+    private MutableLiveData<List<Contractor>> mListContractor;
 
-    private MutableLiveData<List<Contractor>> mContractors;
-
-    public DetailViewModel(@NonNull Application application) {
+    public ListViewModel(@NonNull Application application) {
         super(application);
         mRepository = Injection.provideWholesaleRepository(getApplication());
     }
 
     public LiveData<List<Contractor>> getContractors() {
-        if (mContractors == null) {
-            mContractors = new MutableLiveData<>();
-            get();
+        if (mListContractor == null) {
+            mListContractor = new MutableLiveData<>();
+            getData();
         }
 
-        return mContractors;
+        return mListContractor;
     }
 
-    private void get() {
+    private void getData() {
         mRepository.getAllContractors(new WholesaleDataSource.LoadDataCallback() {
             @Override
             public void onDataLoaded(List<?> data) {
-                mContractors.setValue((List<Contractor>) data);
+                mListContractor.setValue((List<Contractor>) data);
             }
 
             @Override

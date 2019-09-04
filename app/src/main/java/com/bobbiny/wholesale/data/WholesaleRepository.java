@@ -25,8 +25,8 @@ public class WholesaleRepository implements WholesaleDataSource {
      * @param wholesaleLocalDataSource  the device storage data source
      * @return the {@link WholesaleRepository} instance
      */
-    public static WholesaleRepository getInstance(WholesaleDataSource wholesaleRemoteDataSource,
-                                                  WholesaleDataSource wholesaleLocalDataSource) {
+    static WholesaleRepository getInstance(WholesaleDataSource wholesaleRemoteDataSource,
+                                           WholesaleDataSource wholesaleLocalDataSource) {
         if (INSTANCE == null) {
             INSTANCE = new WholesaleRepository(wholesaleRemoteDataSource, wholesaleLocalDataSource);
         }
@@ -39,7 +39,7 @@ public class WholesaleRepository implements WholesaleDataSource {
         mWholesaleRemoteDataSource.getAllContractors(new LoadDataCallback() {
             @Override
             public void onDataLoaded(List<?> data) {
-                saveContractors(data);
+                saveAllContractors(data);
                 callback.onDataLoaded(data);
             }
 
@@ -51,7 +51,28 @@ public class WholesaleRepository implements WholesaleDataSource {
     }
 
     @Override
-    public void saveContractors(@NonNull List<?> dataList) {
-        mWholesaleLocalDataSource.saveContractors(dataList);
+    public void getAllItems(@NonNull LoadDataCallback callback) {
+        mWholesaleRemoteDataSource.getAllItems(new LoadDataCallback() {
+            @Override
+            public void onDataLoaded(List<?> data) {
+                saveAllItems(data);
+                callback.onDataLoaded(data);
+            }
+
+            @Override
+            public void onDataNotAvailable() {
+                callback.onDataNotAvailable();
+            }
+        });
+    }
+
+    @Override
+    public void saveAllContractors(@NonNull List<?> dataList) {
+        mWholesaleLocalDataSource.saveAllContractors(dataList);
+    }
+
+    @Override
+    public void saveAllItems(@NonNull List<?> dataList) {
+        mWholesaleLocalDataSource.saveAllItems(dataList);
     }
 }

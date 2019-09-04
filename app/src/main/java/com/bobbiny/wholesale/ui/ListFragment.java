@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import com.bobbiny.wholesale.R;
 import com.bobbiny.wholesale.adapter.ContractorListAdapter;
 import com.bobbiny.wholesale.adapter.RecyclerViewClickListener;
-import com.bobbiny.wholesale.viewModel.DetailViewModel;
+import com.bobbiny.wholesale.viewModel.ListViewModel;
 
 import static androidx.navigation.fragment.NavHostFragment.findNavController;
 
@@ -35,6 +35,7 @@ public class ListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.fragment_list_view, container, false);
+        mFragment = this;
         return mView.getRootView();
     }
 
@@ -42,13 +43,19 @@ public class ListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mFragment = this;
+        setUpAdapter();
+        setUpViewModel();
+    }
+
+    private void setUpAdapter() {
         mRecyclerView = mView.findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mAdapter = new ContractorListAdapter(getContext(), mRecyclerViewItemClickListener);
         mRecyclerView.setAdapter(mAdapter);
+    }
 
-        DetailViewModel viewModel = ViewModelProviders.of(this).get(DetailViewModel.class);
+    private void setUpViewModel() {
+        ListViewModel viewModel = ViewModelProviders.of(this).get(ListViewModel.class);
         viewModel.getContractors().observe(this, contractorList -> mAdapter.setContractors(contractorList));
     }
 

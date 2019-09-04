@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 import com.bobbiny.wholesale.data.local.dao.ItemDao;
 import com.bobbiny.wholesale.data.local.entity.Contractor;
+import com.bobbiny.wholesale.data.local.entity.Item;
 import com.bobbiny.wholesale.utils.AppExecutors;
 import com.bobbiny.wholesale.data.WholesaleDataSource;
 import com.bobbiny.wholesale.data.local.dao.ContractorDao;
@@ -52,11 +53,11 @@ public class WholesaleLocalDataSource implements WholesaleDataSource {
     @Override
     public void getAllContractors(@NonNull LoadDataCallback callback) {
         Runnable getRunnable = () -> {
-            final List<Contractor> menuComponentList = mContractorDao.getAllContractors();
+            final List<Contractor> contractorList = mContractorDao.getAllContractors();
 
             mAppExecutors.mainThread().execute(() -> {
-                if (!menuComponentList.isEmpty()) {
-                    callback.onDataLoaded(menuComponentList);
+                if (!contractorList.isEmpty()) {
+                    callback.onDataLoaded(contractorList);
                 } else {
                     // This will be called if the table is new or just empty
                     callback.onDataNotAvailable();
@@ -68,8 +69,31 @@ public class WholesaleLocalDataSource implements WholesaleDataSource {
     }
 
     @Override
-    public void saveContractors(@NonNull List<?> dataList) {
+    public void getAllItems(@NonNull LoadDataCallback callback) {
+        Runnable getRunnable = () -> {
+            final List<Item> itemList = mItemDao.getAllItems();
+
+            mAppExecutors.mainThread().execute(() -> {
+                if (!itemList.isEmpty()) {
+                    callback.onDataLoaded(itemList);
+                } else {
+                    callback.onDataNotAvailable();
+                }
+            });
+        };
+
+        mAppExecutors.diskIO().execute(getRunnable);
+    }
+
+    @Override
+    public void saveAllContractors(@NonNull List<?> dataList) {
         Runnable saveRunnable = () -> mContractorDao.insertAllContractors((List<Contractor>) dataList);
+        mAppExecutors.diskIO().execute(saveRunnable);
+    }
+
+    @Override
+    public void saveAllItems(@NonNull List<?> dataList) {
+        Runnable saveRunnable = () -> mItemDao.insertAllItems((List<Item>) dataList);
         mAppExecutors.diskIO().execute(saveRunnable);
     }
 }
