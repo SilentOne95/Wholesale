@@ -7,18 +7,20 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bobbiny.wholesale.R;
 import com.bobbiny.wholesale.adapter.TabsAdapter;
+import com.bobbiny.wholesale.databinding.FragmentDetailViewBinding;
 import com.bobbiny.wholesale.viewModel.DetailViewModel;
 import com.google.android.material.tabs.TabLayout;
 
 public class DetailFragment extends Fragment {
 
-    private View mView;
+    private FragmentDetailViewBinding mBinding;
 
     public DetailFragment() {
         // Required empty public constructor
@@ -27,16 +29,21 @@ public class DetailFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.fragment_detail_view, container, false);
-        return mView.getRootView();
+        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail_view, container, false);
+        return mBinding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        TabLayout tabLayout = mView.findViewById(R.id.tab_layout);
-        final ViewPager viewPager = mView.findViewById(R.id.view_pager);
+        setUpViewPager();
+        setUpViewModel();
+    }
+
+    private void setUpViewPager() {
+        TabLayout tabLayout = mBinding.getRoot().findViewById(R.id.tab_layout);
+        final ViewPager viewPager = mBinding.getRoot().findViewById(R.id.view_pager);
 
         TabsAdapter tabsAdapter = new TabsAdapter(getContext(), getChildFragmentManager());
         viewPager.setAdapter(tabsAdapter);
@@ -49,7 +56,17 @@ public class DetailFragment extends Fragment {
                 tab.setCustomView(tabsAdapter.getTabView(i));
             }
         }
+    }
 
+    private void setUpViewModel() {
         DetailViewModel viewModel = ViewModelProviders.of(this).get(DetailViewModel.class);
+        mBinding.setViewModel(viewModel);
+
+        viewModel.getContractors().observe(this, contractorList -> {
+            mBinding.detailUserNameText.setText(contractorList.get(0).getFirstName()
+                    .concat(" ").concat(contractorList.get(0).getLastName()));
+            mBinding.detailUserCountryText.setText(contractorList.get(0).getCountry());
+            mBinding.detailCurrencyText.setText(contractorList.get(0).getCurrency());
+        });
     }
 }

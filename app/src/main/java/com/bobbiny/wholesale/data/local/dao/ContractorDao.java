@@ -2,6 +2,7 @@ package com.bobbiny.wholesale.data.local.dao;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import com.bobbiny.wholesale.data.local.entity.Contractor;
@@ -25,6 +26,6 @@ public interface ContractorDao {
     /**
      * Insert all contractors to the user table.
      */
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertAllContractors(List<Contractor> contractorList);
 }
