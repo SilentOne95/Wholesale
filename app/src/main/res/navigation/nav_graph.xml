@@ -9,18 +9,22 @@
         android:id="@+id/listViewFragment"
         android:name="com.bobbiny.wholesale.ui.ListFragment"
         android:label="fragment_list_view"
-        tools:layout="@layout/fragment_list_view" >
+        tools:layout="@layout/fragment_list_view">
         <action
-            android:id="@+id/action_listView_to_detailView"
+            android:id="@+id/actionOpenDetailView"
             app:destination="@id/detailViewFragment"
             app:enterAnim="@anim/slide_in_left"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_right"
-            app:popExitAnim="@anim/slide_out_right" />
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/detailViewFragment"
         android:name="com.bobbiny.wholesale.ui.DetailFragment"
         android:label="fragment_detail_view"
-        tools:layout="@layout/fragment_detail_view" />
+        tools:layout="@layout/fragment_detail_view" >
+        <argument
+            android:name="itemId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

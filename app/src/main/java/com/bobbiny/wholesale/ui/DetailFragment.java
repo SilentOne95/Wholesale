@@ -37,11 +37,18 @@ public class DetailFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        setUpViewPager();
-        setUpViewModel();
+        getActivity().setTitle(R.string.screen_title_detail);
+
+        setUpViewPagerAdapter();
+
+        if (getArguments() != null) {
+            setUpViewModel(DetailFragmentArgs.fromBundle(getArguments()).getItemId());
+        } else {
+            setUpViewModel(0);
+        }
     }
 
-    private void setUpViewPager() {
+    private void setUpViewPagerAdapter() {
         TabLayout tabLayout = mBinding.getRoot().findViewById(R.id.tab_layout);
         final ViewPager viewPager = mBinding.getRoot().findViewById(R.id.view_pager);
 
@@ -58,8 +65,9 @@ public class DetailFragment extends Fragment {
         }
     }
 
-    private void setUpViewModel() {
+    private void setUpViewModel(int selectedItemId) {
         DetailViewModel viewModel = ViewModelProviders.of(this).get(DetailViewModel.class);
+        mBinding.setLifecycleOwner(this);
         mBinding.setViewModel(viewModel);
 
         viewModel.getContractors().observe(this, contractorList -> {

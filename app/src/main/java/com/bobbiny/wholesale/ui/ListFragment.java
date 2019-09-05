@@ -43,6 +43,8 @@ public class ListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        getActivity().setTitle(R.string.screen_title_list);
+
         setUpAdapter();
         setUpViewModel();
     }
@@ -62,7 +64,7 @@ public class ListFragment extends Fragment {
     private RecyclerViewClickListener mRecyclerViewItemClickListener = new RecyclerViewClickListener() {
         @Override
         public void onItemClick(int id) {
-            findNavController(mFragment).navigate(R.id.action_listView_to_detailView);
+            findNavController(mFragment).navigate(ListFragmentDirections.actionOpenDetailView(id));
         }
     };
 }

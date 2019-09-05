@@ -2,6 +2,10 @@
     <string name="app_name">Wholesale</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Screen titles -->
+    <string name="screen_title_list">List</string>
+    <string name="screen_title_detail">Details</string>
+
     <!-- Tab strings -->
     <string name="cord_first_category_text">SX</string>
     <string name="cord_second_category_text">SS</string>
