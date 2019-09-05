@@ -48,6 +48,14 @@ public class WholesaleRemoteDataSource implements WholesaleDataSource {
     }
 
     @Override
+    public void getSingleContractor(int id, @NonNull GetSingleDataCallback callback) {
+        mDisposable.add(mApi.getSingleContractor(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(callback::onDataLoaded, throwable -> callback.onDataNotAvailable()));
+    }
+
+    @Override
     public void getAllItems(@NonNull LoadDataCallback callback) {
         mDisposable.add(mApi.getAllItems()
                 .subscribeOn(Schedulers.io())

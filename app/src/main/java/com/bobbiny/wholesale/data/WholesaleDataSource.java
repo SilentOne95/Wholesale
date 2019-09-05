@@ -22,6 +22,8 @@ public interface WholesaleDataSource {
 
     void getAllContractors(@NonNull final LoadDataCallback callback);
 
+    void getSingleContractor(int id, @NonNull final GetSingleDataCallback callback);
+
     void getAllItems(@NonNull final LoadDataCallback callback);
 
     void saveAllContractors(@NonNull final List<?> dataList);

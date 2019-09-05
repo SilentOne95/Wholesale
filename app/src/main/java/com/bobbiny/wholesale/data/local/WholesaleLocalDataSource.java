@@ -69,6 +69,23 @@ public class WholesaleLocalDataSource implements WholesaleDataSource {
     }
 
     @Override
+    public void getSingleContractor(int id, @NonNull GetSingleDataCallback callback) {
+        Runnable getRunnable = () -> {
+            final Contractor contractor = mContractorDao.getSingleContractor(id);
+
+            mAppExecutors.mainThread().execute(() -> {
+                if (contractor != null) {
+                    callback.onDataLoaded(contractor);
+                } else {
+                    callback.onDataNotAvailable();
+                }
+            });
+        };
+
+        mAppExecutors.diskIO().execute(getRunnable);
+    }
+
+    @Override
     public void getAllItems(@NonNull LoadDataCallback callback) {
         Runnable getRunnable = () -> {
             final List<Item> itemList = mItemDao.getAllItems();

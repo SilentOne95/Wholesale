@@ -24,6 +24,14 @@ public interface ContractorDao {
     List<Contractor> getAllContractors();
 
     /**
+     * Select single contractor from the contractor table.
+     *
+     * @return single contractor.
+     */
+    @Query("SELECT * FROM contractor_table WHERE id = :id")
+    Contractor getSingleContractor(int id);
+
+    /**
      * Insert all contractors to the user table.
      */
     @Insert(onConflict = OnConflictStrategy.IGNORE)

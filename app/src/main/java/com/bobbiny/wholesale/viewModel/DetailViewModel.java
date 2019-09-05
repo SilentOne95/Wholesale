@@ -11,12 +11,10 @@ import com.bobbiny.wholesale.data.WholesaleDataSource;
 import com.bobbiny.wholesale.data.WholesaleRepository;
 import com.bobbiny.wholesale.data.local.entity.Contractor;
 
-import java.util.List;
-
 public class DetailViewModel extends AndroidViewModel {
 
     private WholesaleRepository mRepository;
-    private MutableLiveData<List<Contractor>> mListContractor;
+    private MutableLiveData<Contractor> mContractor;
 
     public MutableLiveData<String> firstName = new MutableLiveData<>();
     public MutableLiveData<String> lastName = new MutableLiveData<>();
@@ -28,20 +26,20 @@ public class DetailViewModel extends AndroidViewModel {
         mRepository = Injection.provideWholesaleRepository(getApplication());
     }
 
-    public MutableLiveData<List<Contractor>> getContractors() {
-        if (mListContractor == null) {
-            mListContractor = new MutableLiveData<>();
-            getData();
+    public MutableLiveData<Contractor> getContractors(int id) {
+        if (mContractor == null) {
+            mContractor = new MutableLiveData<>();
+            getData(id);
         }
 
-        return mListContractor;
+        return mContractor;
     }
 
-    private void getData() {
-        mRepository.getAllContractors(new WholesaleDataSource.LoadDataCallback() {
+    private void getData(int id) {
+        mRepository.getSingleContractor(id, new WholesaleDataSource.GetSingleDataCallback() {
             @Override
-            public void onDataLoaded(List<?> data) {
-                mListContractor.setValue((List<Contractor>) data);
+            public void onDataLoaded(Object object) {
+                mContractor.setValue((Contractor) object);
             }
 
             @Override

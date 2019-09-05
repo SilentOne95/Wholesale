@@ -70,11 +70,11 @@ public class DetailFragment extends Fragment {
         mBinding.setLifecycleOwner(this);
         mBinding.setViewModel(viewModel);
 
-        viewModel.getContractors().observe(this, contractorList -> {
-            mBinding.detailUserNameText.setText(contractorList.get(0).getFirstName()
-                    .concat(" ").concat(contractorList.get(0).getLastName()));
-            mBinding.detailUserCountryText.setText(contractorList.get(0).getCountry());
-            mBinding.detailCurrencyText.setText(contractorList.get(0).getCurrency());
+        viewModel.getContractors(selectedItemId + 1).observe(this, contractor -> {
+            mBinding.detailUserNameText.setText(contractor.getFirstName()
+                    .concat(" ").concat(contractor.getLastName()));
+            mBinding.detailUserCountryText.setText(contractor.getCountry());
+            mBinding.detailCurrencyText.setText(contractor.getCurrency());
         });
     }
 }

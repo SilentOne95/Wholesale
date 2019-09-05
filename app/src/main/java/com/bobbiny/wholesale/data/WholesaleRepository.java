@@ -51,6 +51,21 @@ public class WholesaleRepository implements WholesaleDataSource {
     }
 
     @Override
+    public void getSingleContractor(int id, @NonNull GetSingleDataCallback callback) {
+        mWholesaleRemoteDataSource.getSingleContractor(id, new GetSingleDataCallback() {
+            @Override
+            public void onDataLoaded(Object object) {
+                callback.onDataLoaded(object);
+            }
+
+            @Override
+            public void onDataNotAvailable() {
+                callback.onDataNotAvailable();
+            }
+        });
+    }
+
+    @Override
     public void getAllItems(@NonNull LoadDataCallback callback) {
         mWholesaleRemoteDataSource.getAllItems(new LoadDataCallback() {
             @Override

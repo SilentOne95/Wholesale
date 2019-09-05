@@ -7,6 +7,7 @@ import java.util.List;
 
 import io.reactivex.Single;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Streaming;
 
 public interface Api {
@@ -14,6 +15,10 @@ public interface Api {
     @Streaming
     @GET("/contractors")
     Single<List<Contractor>> getAllContractors();
+
+    @Streaming
+    @GET("/contractors/{id}")
+    Single<Contractor> getSingleContractor(@Path("id") int id);
 
     @Streaming
     @GET("/items")
