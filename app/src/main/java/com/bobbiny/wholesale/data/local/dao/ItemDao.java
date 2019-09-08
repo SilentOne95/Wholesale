@@ -15,15 +15,23 @@ import java.util.List;
 public interface ItemDao {
 
     /**
-     * Select all cords from the cord table.
+     * Select all items from the item table.
      *
-     * @return all cords.
+     * @return all items.
      */
     @Query("SELECT * FROM item_table")
     List<Item> getAllItems();
 
     /**
-     * Insert all cords to the cord table.
+     * Select items with certain id and category from the item table.
+     *
+     * @return all items that match requirements.
+     */
+    @Query("SELECT * FROM item_table WHERE id_relation = :id AND category = :category")
+    List<Item> getCategoryItems(int id, String category);
+
+    /**
+     * Insert all items to the item table.
      */
     @Insert
     void insertAllItems(List<Item> cordList);

@@ -26,6 +26,8 @@ public interface WholesaleDataSource {
 
     void getAllItems(@NonNull final LoadDataCallback callback);
 
+    void getCategoryItems(int id, String type, @NonNull final LoadDataCallback callback);
+
     void saveAllContractors(@NonNull final List<?> dataList);
 
     void saveAllItems(@NonNull final List<?> dataList);

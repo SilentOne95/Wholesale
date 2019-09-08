@@ -21,7 +21,7 @@ public class ListViewModel extends AndroidViewModel {
 
     public ListViewModel(@NonNull Application application) {
         super(application);
-        mRepository = Injection.provideWholesaleRepository(getApplication());
+        mRepository = Injection.provideWholesaleRepository(application);
     }
 
     public LiveData<List<Contractor>> getContractors() {

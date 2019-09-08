@@ -48,6 +48,17 @@ public class WholesaleRepository implements WholesaleDataSource {
                 callback.onDataNotAvailable();
             }
         });
+
+        mWholesaleRemoteDataSource.getAllItems(new LoadDataCallback() {
+            @Override
+            public void onDataLoaded(List<?> data) {
+                saveAllItems(data);
+            }
+
+            @Override
+            public void onDataNotAvailable() {
+            }
+        });
     }
 
     @Override
@@ -71,6 +82,21 @@ public class WholesaleRepository implements WholesaleDataSource {
             @Override
             public void onDataLoaded(List<?> data) {
                 saveAllItems(data);
+                callback.onDataLoaded(data);
+            }
+
+            @Override
+            public void onDataNotAvailable() {
+                callback.onDataNotAvailable();
+            }
+        });
+    }
+
+    @Override
+    public void getCategoryItems(int id, String type, @NonNull final LoadDataCallback callback) {
+        mWholesaleLocalDataSource.getCategoryItems(id, type, new LoadDataCallback() {
+            @Override
+            public void onDataLoaded(List<?> data) {
                 callback.onDataLoaded(data);
             }
 

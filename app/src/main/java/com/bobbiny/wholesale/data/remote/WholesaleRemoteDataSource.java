@@ -64,6 +64,11 @@ public class WholesaleRemoteDataSource implements WholesaleDataSource {
     }
 
     @Override
+    public void getCategoryItems(int id, String type, @NonNull final LoadDataCallback callback) {
+
+    }
+
+    @Override
     public void saveAllContractors(@NonNull List<?> dataList) {
 
     }

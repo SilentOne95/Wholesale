@@ -23,7 +23,7 @@ public class DetailViewModel extends AndroidViewModel {
 
     public DetailViewModel(@NonNull Application application) {
         super(application);
-        mRepository = Injection.provideWholesaleRepository(getApplication());
+        mRepository = Injection.provideWholesaleRepository(application);
     }
 
     public MutableLiveData<Contractor> getContractors(int id) {
