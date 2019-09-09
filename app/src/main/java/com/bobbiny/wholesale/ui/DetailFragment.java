@@ -22,6 +22,8 @@ public class DetailFragment extends Fragment {
 
     private FragmentDetailViewBinding mBinding;
 
+    private int mSelectedItemId;
+
     public DetailFragment() {
         // Required empty public constructor
     }
@@ -39,20 +41,21 @@ public class DetailFragment extends Fragment {
 
         getActivity().setTitle(R.string.screen_title_detail);
 
-        setUpViewPagerAdapter();
-
         if (getArguments() != null) {
-            setUpViewModel(DetailFragmentArgs.fromBundle(getArguments()).getItemId());
+            mSelectedItemId = DetailFragmentArgs.fromBundle(getArguments()).getItemId();
         } else {
-            setUpViewModel(0);
+            mSelectedItemId = 0;
         }
+
+        setUpViewPagerAdapter(mSelectedItemId);
+        setUpViewModel(mSelectedItemId);
     }
 
-    private void setUpViewPagerAdapter() {
+    private void setUpViewPagerAdapter(int id) {
         TabLayout tabLayout = mBinding.getRoot().findViewById(R.id.tab_layout);
         final ViewPager viewPager = mBinding.getRoot().findViewById(R.id.view_pager);
 
-        TabsAdapter tabsAdapter = new TabsAdapter(getContext(), getChildFragmentManager());
+        TabsAdapter tabsAdapter = new TabsAdapter(getContext(), getChildFragmentManager(), id);
         viewPager.setAdapter(tabsAdapter);
 
         tabLayout.setupWithViewPager(viewPager);

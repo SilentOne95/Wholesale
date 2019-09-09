@@ -1,6 +1,7 @@
 package com.bobbiny.wholesale.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -15,14 +16,18 @@ import com.bobbiny.wholesale.ui.tabs.TabDeliveryFragment;
 import com.bobbiny.wholesale.ui.tabs.TabMacrameFragment;
 import com.bobbiny.wholesale.ui.tabs.TabOtherFragment;
 
+import static com.bobbiny.wholesale.Constants.TAB_BUNDLE_KEY;
+
 public class TabsAdapter extends FragmentPagerAdapter {
 
     private Context mContext;
     private int[] mTabIconsId = {R.drawable.ic_tab_cord, R.drawable.ic_tab_macrame, R.drawable.ic_tab_other, R.drawable.ic_tab_delivery};
+    private int mId;
 
-    public TabsAdapter(Context context, FragmentManager fragmentManager) {
+    public TabsAdapter(Context context, FragmentManager fragmentManager, int id) {
         super(fragmentManager);
         mContext = context;
+        mId = id;
     }
 
     public View getTabView(int position) {
@@ -36,15 +41,25 @@ public class TabsAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
+        Bundle bundle = new Bundle();
+        bundle.putInt(TAB_BUNDLE_KEY, mId);
         switch (position) {
             case 0:
-                return new TabCordFragment();
+                TabCordFragment fragmentOne = new TabCordFragment();
+                fragmentOne.setArguments(bundle);
+                return fragmentOne;
             case 1:
-                return new TabMacrameFragment();
+                TabMacrameFragment fragmentTwo = new TabMacrameFragment();
+                fragmentTwo.setArguments(bundle);
+                return fragmentTwo;
             case 2:
-                return new TabOtherFragment();
+                TabOtherFragment fragmentThree = new TabOtherFragment();
+                fragmentThree.setArguments(bundle);
+                return fragmentThree;
             case 3:
-                return new TabDeliveryFragment();
+                TabDeliveryFragment fragmentFour = new TabDeliveryFragment();
+                fragmentFour.setArguments(bundle);
+                return fragmentFour;
             default:
                 return null;
         }

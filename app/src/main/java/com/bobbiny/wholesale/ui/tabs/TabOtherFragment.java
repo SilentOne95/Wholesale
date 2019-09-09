@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import com.bobbiny.wholesale.R;
 import com.bobbiny.wholesale.viewModel.tabs.TabOtherViewModel;
 
+import static com.bobbiny.wholesale.Constants.TAB_BUNDLE_KEY;
+
 public class TabOtherFragment extends Fragment {
 
     public TabOtherFragment() {
@@ -30,11 +32,20 @@ public class TabOtherFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        setUpViewModel();
+        setUpViewModel(getBundle());
     }
 
-    private void setUpViewModel() {
+    private void setUpViewModel(int id) {
         TabOtherViewModel viewModel = ViewModelProviders.of(this).get(TabOtherViewModel.class);
-        viewModel.getTabItems(1).observe(this, contractorList -> {});
+        viewModel.getTabItems(id).observe(this, contractorList -> {});
+    }
+
+    private int getBundle() {
+        Bundle bundle = getArguments();
+        if (bundle != null && bundle.containsKey(TAB_BUNDLE_KEY)) {
+            return bundle.getInt(TAB_BUNDLE_KEY);
+        } else {
+            return 0;
+        }
     }
 }
